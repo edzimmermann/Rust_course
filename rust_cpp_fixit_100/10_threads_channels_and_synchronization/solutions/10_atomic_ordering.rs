@@ -1,0 +1,12 @@
+// Topic: Threads Channels and Synchronization
+// Solution 10: atomic_ordering
+// Fix: Pass an explicit memory Ordering to atomic operations.
+
+/* CPP_EQUIVALENT_BEGIN
+#include <atomic>
+#include <iostream>
+int main(){std::atomic<unsigned> n{0};n.fetch_add(1,std::memory_order_relaxed);std::cout<<n.load(std::memory_order_relaxed)<<"\n";}
+CPP_EQUIVALENT_END */
+
+use std::sync::atomic::{AtomicUsize,Ordering};
+fn main(){let n=AtomicUsize::new(0);n.fetch_add(1,Ordering::Relaxed);println!("{}",n.load(Ordering::Relaxed));}

@@ -1,0 +1,12 @@
+// Topic: Ownership and Moves
+// Solution 09: array_of_strings_move
+// Fix: Borrow the indexed String instead of moving from the array.
+
+/* CPP_EQUIVALENT_BEGIN
+#include <array>
+#include <iostream>
+#include <string>
+int main(){ std::array<std::string,2> a{"x","y"}; const auto& first=a[0]; std::cout<<first<<" "<<a[1]<<"\n"; }
+CPP_EQUIVALENT_END */
+
+fn main(){ let a=[String::from("x"),String::from("y")]; let first=&a[0]; println!("{first} {}",a[1]); }
